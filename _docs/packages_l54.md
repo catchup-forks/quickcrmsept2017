@@ -14,7 +14,7 @@
 "laravel/framework": "^5.4",
 "laravel/tinker": "^1.0",
 "laravelcollective/html": "^5.4",
-"maatwebsite/excel": "^2.13",
+"maatwebsite/excel": "^2.1",
 "nwidart/laravel-modules": "^1.27",
 "patricktalmadge/bootstrapper": "^5.10",
 "predis/predis": "^1.1",
