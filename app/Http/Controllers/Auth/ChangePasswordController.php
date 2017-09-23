@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -34,7 +33,6 @@ class ChangePasswordController extends Controller
     public function showChangePasswordForm()
     {
         $user = Auth::getUser();
-
         return view('auth.change_password', compact('user'));
     }
 
@@ -60,7 +58,7 @@ class ChangePasswordController extends Controller
     /**
      * Get a validator for an incoming change password request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)

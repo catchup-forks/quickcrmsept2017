@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Traits;
 
 use Illuminate\Http\Request;
@@ -13,25 +12,23 @@ trait FileUploadTrait
      */
     public function saveFiles(Request $request)
     {
-        if (! file_exists(public_path('uploads'))) {
+        if (!file_exists(public_path('uploads'))) {
             mkdir(public_path('uploads'), 0777);
             mkdir(public_path('uploads/thumb'), 0777);
         }
-
         $finalRequest = $request;
-
         foreach ($request->all() as $key => $value) {
             if ($request->hasFile($key)) {
                 if ($request->has($key . '_max_width') && $request->has($key . '_max_height')) {
                     // Check file width
                     $filename = time() . '-' . $request->file($key)->getClientOriginalName();
-                    $file     = $request->file($key);
-                    $image    = Image::make($file);
-                    if (! file_exists(public_path('uploads/thumb'))) {
+                    $file = $request->file($key);
+                    $image = Image::make($file);
+                    if (!file_exists(public_path('uploads/thumb'))) {
                         mkdir(public_path('uploads/thumb'), 0777, true);
                     }
                     Image::make($file)->resize(50, 50)->save(public_path('uploads/thumb') . '/' . $filename);
-                    $width  = $image->width();
+                    $width = $image->width();
                     $height = $image->height();
                     if ($width > $request->{$key . '_max_width'} && $height > $request->{$key . '_max_height'}) {
                         $image->resize($request->{$key . '_max_width'}, $request->{$key . '_max_height'});
@@ -53,7 +50,6 @@ trait FileUploadTrait
                 }
             }
         }
-
         return $finalRequest;
     }
 }
