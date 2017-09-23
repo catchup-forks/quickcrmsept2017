@@ -16,6 +16,10 @@
     "anahkiasen/former": "dev-master",
     "barryvdh/laravel-cors": "^0.9",
     "barryvdh/laravel-debugbar": "^2.4",
+
+    "infyomlabs/laravel-generator": "dev-master",
+    "infyomlabs/adminlte-templates": "dev-master",
+
     "barryvdh/laravel-ide-helper": "^2.4",
     "cerdic/css-tidy": "^1.5",
     "codedge/laravel-selfupdater": "5.x-dev",
